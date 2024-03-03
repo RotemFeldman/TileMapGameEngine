@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileMapGameEngine", "TileMapGameEngine.csproj", "{F9322413-0E97-4B1E-97CC-9989A0FFA205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TileMapGameEngine", "TileMapGameEngine.csproj", "{F9322413-0E97-4B1E-97CC-9989A0FFA205}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB22D040-3EE1-442F-B4D5-A69BACA54D61} = {EB22D040-3EE1-442F-B4D5-A69BACA54D61}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Positioning_TileMapEngine", "..\Positioning_TileMapEngine\Positioning_TileMapEngine.csproj", "{EB22D040-3EE1-442F-B4D5-A69BACA54D61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{F9322413-0E97-4B1E-97CC-9989A0FFA205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9322413-0E97-4B1E-97CC-9989A0FFA205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9322413-0E97-4B1E-97CC-9989A0FFA205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB22D040-3EE1-442F-B4D5-A69BACA54D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB22D040-3EE1-442F-B4D5-A69BACA54D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB22D040-3EE1-442F-B4D5-A69BACA54D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB22D040-3EE1-442F-B4D5-A69BACA54D61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

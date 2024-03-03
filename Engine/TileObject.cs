@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TileMapGameEngine
 {
-    public abstract class TileObject
+    public abstract class TileObject 
     {
        
     }
