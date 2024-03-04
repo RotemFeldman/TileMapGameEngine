@@ -8,6 +8,8 @@ namespace TileMapGameEngine
 {
     public abstract class TileMap
     {
-        public abstract Tile[] map { get; }
+        public abstract Tile[,] Map { get; set; }
+
+        public abstract TileMap CreateMap(int x, int y);
     }
 }

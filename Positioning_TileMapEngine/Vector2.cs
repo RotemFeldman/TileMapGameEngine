@@ -11,7 +11,7 @@ namespace Positioning_TileMapEngine
     /// <summary>
     /// Represents a two-dimensional vector with integer X and Y coordinates.
     /// </summary>
-    readonly struct Vector2 : IEquatable<Vector2> 
+    readonly struct IntVector2 : IEquatable<IntVector2> 
     {
         /// <summary>
         /// Gets the X-coordinate of the vector.
@@ -25,11 +25,11 @@ namespace Positioning_TileMapEngine
 
  
         /// <summary>
-        /// Initializes a new instance of the Vector2 struct with the specified coordinates.
+        /// Initializes a new instance of the IntVector2 struct with the specified coordinates.
         /// </summary>
         /// <param name="x">The X-coordinate of the vector.</param>
         /// <param name="y">The Y-coordinate of the vector.</param>
-        public Vector2 (int x, int y)
+        public IntVector2 (int x, int y)
         {
             X = x;
             Y = y;
@@ -47,6 +47,7 @@ namespace Positioning_TileMapEngine
         /// <summary>
         /// Computes a hash code for the vector.
         /// </summary>
+        /// 
         public override int GetHashCode()
         {
             return HashCode.Combine(X, Y) ;
@@ -56,7 +57,7 @@ namespace Positioning_TileMapEngine
         /// Determines whether the specified object is equal to the current vector.
         /// </summary>
         /// <param name="other">The vector to compare with the current vector.</param>
-        public bool Equals(Vector2 other)
+        public bool Equals(IntVector2 other)
         {
             return (this.X == other.X && this.Y == other.Y);              
         }
@@ -73,7 +74,7 @@ namespace Positioning_TileMapEngine
             if(this.GetType() != obj.GetType()) 
                 return false;
 
-            var vec = (Vector2)obj;
+            var vec = (IntVector2)obj;
 
             return this.X == vec.X && this.Y == vec.Y;
         }
@@ -84,9 +85,9 @@ namespace Positioning_TileMapEngine
         /// <param name="a">The first vector to add.</param>
         /// <param name="b">The second vector to add.</param>
         /// <returns>A new vector that represents the sum of the input vectors.</returns>
-        public static Vector2 operator +(Vector2 a, Vector2 b)
+        public static IntVector2 operator +(IntVector2 a, IntVector2 b)
         {
-            return new Vector2(a.X + b.X, a.Y + b.Y);
+            return new IntVector2(a.X + b.X, a.Y + b.Y);
         }
 
         /// <summary>
@@ -95,9 +96,9 @@ namespace Positioning_TileMapEngine
         /// <param name="a">The vector to subtract from.</param>
         /// <param name="b">The vector to subtract.</param>
         /// <returns>A new vector that represents the difference between the input vectors.</returns>
-        public static Vector2 operator -(Vector2 a, Vector2 b)
+        public static IntVector2 operator -(IntVector2 a, IntVector2 b)
         {
-            return new Vector2(a.X - b.X, a.Y - b.Y);
+            return new IntVector2(a.X - b.X, a.Y - b.Y);
         }
 
         /// <summary>
@@ -109,7 +110,7 @@ namespace Positioning_TileMapEngine
         /// <remarks>
         /// Two vectors are considered equal if their X and Y coordinates are equal.
         /// </remarks>
-        public static bool operator ==(Vector2 left, Vector2 right)
+        public static bool operator ==(IntVector2 left, IntVector2 right)
         {
             return left.Equals(right);
         }
@@ -123,7 +124,7 @@ namespace Positioning_TileMapEngine
         /// <remarks>
         /// Two vectors are considered not equal if their X and Y coordinates are not equal.
         /// </remarks>
-        public static bool operator !=(Vector2 left, Vector2 right)
+        public static bool operator !=(IntVector2 left, IntVector2 right)
         {
             return !(left == right);
         }

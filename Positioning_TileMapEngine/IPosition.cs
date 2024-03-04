@@ -15,14 +15,14 @@ namespace Positioning_TileMapEngine
         /// Gets or sets the position of the object.
         /// </summary>
         /// <remarks>
-        /// The position is represented by a <see cref="Vector2"/> instance.
+        /// The position is represented by a <see cref="IntVector2"/> instance.
         /// </remarks>
-        public Vector2 Position { get; set; }
+        public IntVector2 Position { get; set; }
 
         /// <summary>
         /// Sets the position of the object to the specified coordinates.
         /// </summary>
         /// <param name="position">The new position of the object.</param>
-        public void SetPosition(Vector2 position);
+        public void SetPosition(IntVector2 position);
     }
 }
