@@ -6,18 +6,27 @@ using System.Threading.Tasks;
 
 namespace TileMapGameEngine
 {
-    public abstract class Tile : IPosition
+    public abstract class Tile 
     {
-        public delegate void TileEventArgs(Tile sender, TileObject tileObject);
-        public abstract TileObject Occupant { get; set; }
+        protected delegate void TileEventArgs(Tile sender, TileObject tileObject);
+        protected event TileEventArgs? OnTileObjectEntered;
+        protected event TileEventArgs? OnTileObjectExited;
+        protected event TileEventArgs? OnTileObjectPassedThorugh;
+
+        protected abstract TileObject Occupant { get; set; }
+        protected abstract Actor Owner { get;}
+        
+        protected virtual bool IsEmpty()
+        {
+            if (Occupant == null)
+                return true;
+
+            return false;
+        }
         
 
-        public abstract void TryEnter(TileObject tileObject);
-        public abstract void Enter(TileObject tileObject);
-        public abstract void Exit(TileObject tileObject);
-
-        public abstract void OnTileObjectEnter(TileObject tileObject);
-        public abstract void OnTileObjectExit(TileObject tileObject);
-        public abstract void OnTileObjectPassThrough(TileObject tileObject);
+        protected abstract void OnTileObjectEnter(TileObject tileObject);
+        protected abstract void OnTileObjectExit(TileObject tileObject);
+        protected abstract void OnTileObjectPassThrough(TileObject tileObject);
     }
 }

@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace TileMapGameEngine
 {
-    public abstract class TileMap
+    public enum Actor
     {
-        protected abstract Tile[,] Map { get; set; }
-
-        protected TileMap(int x, int y)
-        {
-
-        }
+        None,
+        Player1,
+        Player2,
     }
 }

@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TileMapGameEngine
 {
-    public abstract class TileObject : IPosition , INullable
+    public abstract class TileObject 
     {
-        public abstract bool IsNull { get; }
+        protected delegate void TileObjectEventArgs(TileObject sender, TileObject other);
+        protected event TileObjectEventArgs? OnTileObjectLand;
+        protected event TileObjectEventArgs? OnTileObjectPass;
 
-        public abstract void SetPosition(Vector2 position);
+        protected abstract Actor Owner { get; }
+
+     
+
+        
     }
 }
