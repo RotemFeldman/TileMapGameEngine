@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Positioning_TileMapEngine
 {
-    readonly struct Position : IPosition , IEquatable<Position>
+    public readonly struct Position : IPosition , IEquatable<Position>
     {
         /// <summary>
         /// Gets the X-coordinate of the position.

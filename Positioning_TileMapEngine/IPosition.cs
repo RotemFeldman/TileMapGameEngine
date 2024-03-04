@@ -9,10 +9,17 @@ namespace Positioning_TileMapEngine
     /// <summary>
     /// An interface for objects that have a position in two-dimensional space.
     /// </summary>
-    interface IPosition
+    public interface IPosition
     {
+        /// <summary>
+        /// The X-coordinate of the position.
+        /// </summary>
         int X { get; }
-        int Y { get; }
 
+        /// <summary>
+        /// The Y-coordinate of the position.
+        /// </summary>
+        int Y { get; }
+        
     }
 }

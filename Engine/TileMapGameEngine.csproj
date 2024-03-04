@@ -7,6 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Positioning_TileMapEngine\Positioning_TileMapEngine.csproj" />
+  </ItemGroup>
+
 
 
 </Project>

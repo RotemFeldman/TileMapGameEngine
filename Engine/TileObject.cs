@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Positioning_TileMapEngine;
 
 namespace TileMapGameEngine
 {
@@ -16,9 +17,7 @@ namespace TileMapGameEngine
         protected event TileObjectEventArgs? OnTileObjectPass;
 
         protected abstract Actor Owner { get; }
-
-     
-
+        protected abstract Position Position { get; }
         
     }
 }
