@@ -20,7 +20,8 @@ namespace TileMapGameEngine
     }
 
     enum Direction
-    {s
+    {
+        
         Up, Down, Left, Right
     }
 

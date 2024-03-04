@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Positioning_TileMapEngine;
+using TileMapGameEngine.Interfaces;
 
 namespace TileMapGameEngine
 {
@@ -16,8 +17,10 @@ namespace TileMapGameEngine
         protected event TileObjectEventArgs? OnTileObjectLand;
         protected event TileObjectEventArgs? OnTileObjectPass;
 
-        protected abstract Actor Owner { get; }
-        protected abstract Position Position { get; }
+        protected abstract IActor Owner { get; }
+        protected abstract Position Position { get;}
         
+
+
     }
 }
