@@ -10,9 +10,9 @@ namespace TileMapGameEngine
     /// <summary>
     /// Represents an enumerator for iterating through the tile map.
     /// </summary>
-    internal class TileMapEnumerator : IEnumerator<Tile> , IDisposable
+    internal class TileMapEnumerator<T> : IEnumerator<T> , IDisposable
     {
-        private Tile[,] map;
+        private T[,] map;
         private int width;
         private int height;
         private int currentX;
@@ -22,7 +22,7 @@ namespace TileMapGameEngine
         /// Initializes a new instance of the TileMapEnumerator class with the specified tile map.
         /// </summary>
         /// <param name="map">The tile map.</param>
-        public TileMapEnumerator(Tile[,] map)
+        public TileMapEnumerator(T[,] map)
         {
             this.map = map;
             this.width = map.GetLength(0);
@@ -33,7 +33,7 @@ namespace TileMapGameEngine
         /// <summary>
         /// Gets the current tile in the tile map.
         /// </summary>
-        public Tile Current
+        public T Current
         {
             get { return map[currentX, currentY]; }
         }

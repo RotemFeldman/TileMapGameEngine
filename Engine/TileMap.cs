@@ -11,12 +11,12 @@ namespace TileMapGameEngine
     /// <summary>
     /// Represents an abstract class for a tile map.
     /// </summary>
-    public abstract class TileMap : IEnumerable<Tile> 
+    public abstract class TileMap<T> where T : Tile, IEnumerable<Tile> 
     {
         /// <summary>
         /// Gets or sets the map of tiles.
         /// </summary>
-        protected abstract Tile[,] Map { get; set; }
+        protected abstract T[,] Map { get; set; }
 
         /// <summary>
         /// Gets or sets the width of the tile map.
@@ -36,14 +36,14 @@ namespace TileMapGameEngine
         {
             Width = width;
             Height = height;
-            Map = new Tile[Width, Height];
+            Map = new T[Width, Height];
         }
 
         /// <summary>
         /// Initializes a new instance of the TileMap class with the specified tile map.
         /// </summary>
         /// <param name="map">The tile map.</param>
-        protected TileMap(Tile[,] map)
+        protected TileMap(T[,] map)
         {
             Map = map;
             Width = map.GetLength(0);
@@ -56,7 +56,7 @@ namespace TileMapGameEngine
         /// <param name="position">The position of the tile.</param>
         /// <returns>The tile at the specified position.</returns>
         /// <exception cref="IndexOutOfRangeException">Thrown when the specified position is out of range.</exception>
-        public Tile this[Position position]
+        public T this[Position position]
         {
             get => Map[position.X, position.Y];
             set => Map[position.X,position.Y] = value;
@@ -68,7 +68,7 @@ namespace TileMapGameEngine
         /// <param name="x">The x-coordinate of the tile.</param>
         /// <param name="y">The y-coordinate of the tile.</param>
         /// <returns>The tile at the specified coordinates.</returns>
-        public Tile this[int x, int y]
+        public T this[int x, int y]
         {
             get
             {
@@ -94,18 +94,10 @@ namespace TileMapGameEngine
         /// Returns an enumerator that iterates through the tile map.
         /// </summary>
         /// <returns>An enumerator that can be used to iterate through the tile map.</returns>
-        public IEnumerator<Tile> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-            return new TileMapEnumerator(Map);
+            return new TileMapEnumerator<T>(Map);
         }
-
-        /// <summary>
-        /// Returns an enumerator that iterates through the tile map.
-        /// </summary>
-        /// <returns>An enumerator that can be used to iterate through the tile map.</returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        
     }
 }
