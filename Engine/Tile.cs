@@ -7,32 +7,40 @@ using TileMapGameEngine.Interfaces;
 
 namespace TileMapGameEngine
 {
-    public abstract class Tile : IRenderable
+    public abstract class Tile
     {
-        protected delegate void TileEventArgs(Tile sender, TileObject tileObject);
-        protected event TileEventArgs? OnTileObjectEntered;
-        protected event TileEventArgs? OnTileObjectPassedThrough;
+        public delegate void TileEventArgs(Tile sender, TileObject tileObject);
+        public event TileEventArgs? OnTileObjectLandedEvent;
+        public event TileEventArgs? OnTileObjectPassedEvent;
 
         protected abstract TileObject Occupant { get; set; }
         protected abstract IActor Owner { get;}
 
-        protected virtual bool IsEmpty()
+        public bool IsEmpty()
         {
             if(Occupant == null) 
                 return true;
             return false;
-        }
-        
-        
+        }        
 
-        protected virtual void OnTileObjectEnter(TileObject tileObject)
+        public TileObject? GetOccupant()
         {
-            OnTileObjectEntered?.Invoke(this, tileObject);
+            if (Occupant == null)
+                return null;
+
+            return Occupant;
         }
 
-        protected virtual void OnTileObjectPassThrough(TileObject tileObject)
+        public IActor? GetOwner()
         {
-            OnTileObjectPassedThrough?.Invoke(this, tileObject);
+            if(Owner == null)
+                return null;
+
+            return Owner;
         }
+
+        protected void OnTileObjectLanded(TileObject tileObject) => OnTileObjectLandedEvent?.Invoke(this, tileObject);        
+        protected void OnTileObjectPassThrough(TileObject tileObject) => OnTileObjectPassedEvent?.Invoke(this, tileObject);                    
+        
     }
 }

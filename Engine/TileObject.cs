@@ -11,16 +11,20 @@ using TileMapGameEngine.Interfaces;
 
 namespace TileMapGameEngine
 {
-    public abstract class TileObject 
+    public abstract class TileObject : ICloneable
     {
-        protected delegate void TileObjectEventArgs(TileObject sender, TileObject other);
-        protected event TileObjectEventArgs? OnTileObjectLand;
-        protected event TileObjectEventArgs? OnTileObjectPass;
-
-        protected abstract IActor Owner { get; }
+        public delegate void TileObjectEventArgs(TileObject sender, TileObject other);
+        public event TileObjectEventArgs? OnTileObjectLandedEvent;
+        public event TileObjectEventArgs? OnTileObjectPassedEvent;
+       
+        protected abstract IActor? Owner { get; }
         protected abstract Position Position { get;}
+
+        public abstract object Clone();        
+             
+        protected virtual void OnTileObjectLanded(TileObject other) => OnTileObjectLandedEvent?.Invoke(this, other);
+        protected virtual void OnTileObjectPassed(TileObject other) => OnTileObjectPassedEvent?.Invoke(this, other);
+                   
         
-
-
     }
 }
