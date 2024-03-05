@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Positioning_TileMapEngine;
+﻿using Positioning_TileMapEngine;
 
 namespace TileMapGameEngine
 {
     /// <summary>
     /// Represents an abstract class for a tile map.
     /// </summary>
+    /// <typeparam name="T">The type of tiles in the map.</typeparam>
     public abstract class TileMap<T> where T : Tile, IEnumerable<Tile> 
     {
         /// <summary>
@@ -68,6 +63,7 @@ namespace TileMapGameEngine
         /// <param name="x">The x-coordinate of the tile.</param>
         /// <param name="y">The y-coordinate of the tile.</param>
         /// <returns>The tile at the specified coordinates.</returns>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the specified coordinates are out of range.</exception>
         public T this[int x, int y]
         {
             get

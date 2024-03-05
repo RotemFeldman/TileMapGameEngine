@@ -79,9 +79,12 @@ namespace TileMapGameEngine
         /// </summary>
         public void Dispose()
         {
-
+            // Dispose implementation if needed
         }
 
+        /// <summary>
+        /// Resets the enumerator to its initial position, which is before the first tile in the tile map.
+        /// </summary>
         void IEnumerator.Reset()
         {
             currentX = -1;
