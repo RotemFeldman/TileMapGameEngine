@@ -20,6 +20,7 @@ namespace Positioning_TileMapEngine
         /// The Y-coordinate of the position.
         /// </summary>
         int Y { get; }
-        
+
+
     }
 }

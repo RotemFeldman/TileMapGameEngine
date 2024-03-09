@@ -10,7 +10,7 @@ namespace TileMapGameEngine
         public event TileObjectEventArgs? OnTileObjectPassedEvent;
        
         protected abstract IActor? Owner { get; }
-        protected abstract Position Position { get;}
+        protected abstract IPosition Position { get; }
 
         public abstract object Clone();        
              

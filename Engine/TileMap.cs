@@ -94,6 +94,22 @@ namespace TileMapGameEngine
         {
             return new TileMapEnumerator<T>(Map);
         }
-        
+
+        /// <summary>
+        /// Returns the number of tile objects in the tile map.
+        /// </summary>
+        /// <returns>The number of tile objects in the tile map.</returns>
+        public int CountTileObjects()
+        {
+            int count = 0;
+
+            foreach(T t in Map)
+            {
+                if(!t.IsEmpty())
+                    count++;
+            }
+
+            return count;
+        }
     }
 }

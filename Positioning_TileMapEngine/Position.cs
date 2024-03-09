@@ -2,17 +2,17 @@
 
 namespace Positioning_TileMapEngine
 {
-    public readonly struct Position : IPosition , IEquatable<Position>
+    public readonly struct Position : IPosition, IEquatable<Position>
     {
         /// <summary>
         /// Gets the X-coordinate of the position.
         /// </summary>
-        public int X { get;  }
+        public int X { get; }
 
         /// <summary>
         /// Gets the Y-coordinate of the position.
         /// </summary>
-        public int Y { get;  }
+        public int Y { get; }
 
         /// <summary>
         /// Initializes a new instance of the Position struct with the specified coordinates.
@@ -67,6 +67,11 @@ namespace Positioning_TileMapEngine
             var pos = (Position)obj;
 
             return this.X == pos.X && this.Y == pos.Y;
+        }
+
+        public void SetPosition()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
