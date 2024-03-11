@@ -51,7 +51,7 @@ namespace TileMapGameEngine
         /// <param name="position">The position of the tile.</param>
         /// <returns>The tile at the specified position.</returns>
         /// <exception cref="IndexOutOfRangeException">Thrown when the specified position is out of range.</exception>
-        public T this[Position position]
+        public T this[IPosition position]
         {
             get => Map[position.X, position.Y];
             set => Map[position.X,position.Y] = value;
