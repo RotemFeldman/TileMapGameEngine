@@ -25,7 +25,6 @@ namespace Positioning_TileMapEngine
             Y = y;
         }
 
-
         /// <summary>
         /// Returns a string representation of the position.
         /// </summary>

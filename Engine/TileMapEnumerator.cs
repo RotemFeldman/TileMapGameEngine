@@ -12,22 +12,24 @@ namespace TileMapGameEngine
     /// </summary>
     internal class TileMapEnumerator<T> : IEnumerator<T> , IDisposable
     {
-        private T[,] map;
-        private int width;
-        private int height;
-        private int currentX;
-        private int currentY;
+        private T[,] _map;
+        private int _width;
+        private int _height;
+        private int _currentX;
+        private int _currentY;
 
         /// <summary>
         /// Initializes a new instance of the TileMapEnumerator class with the specified tile map.
         /// </summary>
-        /// <param name="map">The tile map.</param>
-        public TileMapEnumerator(T[,] map)
+        /// <param name="_map">The tile map.</param>
+        public TileMapEnumerator(T[,] _map)
         {
-            this.map = map;
-            this.width = map.GetLength(0);
-            this.height = map.GetLength(1);
-            Reset();
+            this._map = _map;
+            this._width = _map.GetLength(0);
+            this._height = _map.GetLength(1);
+
+            _currentX = -1;
+            _currentY = 0;
         }
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace TileMapGameEngine
         /// </summary>
         public T Current
         {
-            get { return map[currentX, currentY]; }
+            get { return _map[_currentX, _currentY]; }
         }
 
         /// <summary>
@@ -49,29 +51,20 @@ namespace TileMapGameEngine
         /// <returns>true if the enumerator was successfully advanced to the next tile; false if the enumerator has passed the end of the tile map.</returns>
         public bool MoveNext()
         {
-            if (currentX < width - 1)
+            if (_currentX < _width - 1)
             {
-                currentX++;
+                _currentX++;
             }
-            else if (currentY < height - 1)
+            else if (_currentY < _height - 1)
             {
-                currentX = 0;
-                currentY++;
+                _currentX = 0;
+                _currentY++;
             }
             else
             {
                 return false; // End of iteration
             }
             return true;
-        }
-
-        /// <summary>
-        /// Sets the enumerator to its initial position, which is before the first tile in the tile map.
-        /// </summary>
-        private void Reset()
-        {
-            currentX = -1;
-            currentY = 0;
         }
 
         /// <summary>
@@ -87,8 +80,15 @@ namespace TileMapGameEngine
         /// </summary>
         void IEnumerator.Reset()
         {
-            currentX = -1;
-            currentY = 0;
+            new NotSupportedException();
+        }
+
+        /// <summary>
+        /// Sets the enumerator to its initial position, which is before the first tile in the tile map.
+        /// </summary>
+        private void Reset()
+        {
+            new NotSupportedException();
         }
     }
 }
