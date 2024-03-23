@@ -10,6 +10,9 @@ class HelpCommand : ICommand
         this.commands = commands;
     }
 
+    /// <summary>
+    /// Executes the Help command from the dictionary in CommandInvoker
+    /// </summary>
     public void Execute()
     {
         Console.WriteLine("Avalible Commands:\n");

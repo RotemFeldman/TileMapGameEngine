@@ -15,13 +15,16 @@ public class MoveTileObjectCommand : IParameterizedCommand
     }
 
     /// <summary>
-    /// Executes the MoveTileObject from the MovementSystem
+    /// Executes the MoveTileObject from the MovementSystem (with parameters)
     /// </summary>
     public void Execute(int x, int y)
     {
         _movementSystem.MoveTileObject(x, y);
     }
 
+    /// <summary>
+    /// Executes the MoveTileObject from the MovementSystem
+    /// </summary>
     public void Execute()
     {
         _movementSystem.MoveTileObject(_x, _y);

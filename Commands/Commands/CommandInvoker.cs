@@ -30,6 +30,11 @@ public class CommandInvoker
             Console.WriteLine($"The command \"{commandName}\" not recognized. Type /help to see availible commands");
         }
     }
+
+    /// <summary>
+    /// Executes the command by command name (with parameters)
+    /// </summary>
+    /// <param name="commandName"></param>
     public void ExecuteCommand(string commandName, int x = 0, int y = 0)
     {
         if (_commands.ContainsKey(commandName))
